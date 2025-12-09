@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ГО «Хімічна асоціація» — хімія, безпека, регулювання</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ГО «Хімічна асоціація» — громадська організація у сфері хімічної науки, безпеки та регулювання."
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg-main: #0f1115;
+      --bg-alt: #181b21;
+      --accent: #7a2b3e;
+      --accent-soft: #b35a6d;
+      --text-main: #f5f5f5;
+      --text-muted: #b0b3bd;
+      --border-subtle: #2a2e36;
+      --pill-bg: #20232b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      background: radial-gradient(circle at top left, #1b1f27 0, #0b0d11 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(9, 11, 16, 0.9);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--accent-soft);
+      opacity: 0.8;
+    }
+
+    .brand-mark::after {
+      width: 4px;
+      height: 4px;
+      background: var(--accent-soft);
+    }
+
+    .brand-text-top {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brand-text-main {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent-soft);
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    /* Hero */
+
+    .hero { padding: 40px 0 40px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 40px;
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 40px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      color: var(--text-main);
+      background: transparent;
+      transition: all 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #4f1a29 100%);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-primary:hover { filter: brightness(1.08); }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(17, 20, 27, 0.7);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      background: rgba(27, 30, 38, 0.9);
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 460px;
+    }
+
+    /* Sections */
+
+    section { padding: 40px 0 10px; }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .section-lead {
+      color: var(--text-muted);
+      max-width: 660px;
+      margin-bottom: 18px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px 0 20px;
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 860px) {
+      nav ul { display: none; }
+      .mobile-only { display: inline-flex; }
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="brand">
+            <div class="brand-mark"></div>
+            <div>
+              <div class="brand-text-top">ГО «Хімічна асоціація»</div>
+              <div class="brand-text-main">Хімія, безпека, діалог</div>
+            </div>
+          </div>
+
+          <nav>
+            <ul>
+              <li><a href="#about">Про нас</a></li>
+              <li><a href="#goals">Мета</a></li>
+              <li><a href="#activities">Що ми робимо</a></li>
+              <li><a href="#contacts">Контакти</a></li>
+            </ul>
+            <a href="#contacts" class="mobile-only">Контакти</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-kicker">Громадська організація</div>
+        <h1 class="hero-title">
+          Хімія, безпека й регулювання<br />зрозумілою мовою.
+        </h1>
+        <p class="hero-subtitle">
+          ГО «Хімічна асоціація» — це простір, де наука, бізнес, держава й
+          громадськість говорять про хімію без паніки, але з відповідальністю.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#join" class="btn btn-primary">Долучитися</a>
+          <a href="#activities" class="btn btn-ghost">Подивитися, що ми робимо</a>
+        </div>
+
+        <p class="hero-note">
+          Ми працюємо там, де формули зустрічаються з реальністю — від освітніх
+          заходів до участі в підготовці регулювання.
+        </p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-label">Про організацію</div>
+        <h2 class="section-title">Про організацію</h2>
+        <p class="section-lead">
+          Ми поєднуємо науковий підхід, регуляторну практику та доступну мову,
+          щоб хімічна безпека перестала бути страшною темою, а стала
+          передбачуваним процесом.
+        </p>
+      </div>
+    </section>
+
+    <!-- Goals -->
+    <section id="goals">
+      <div class="container">
+        <div class="section-label">Мета та завдання</div>
+        <h2 class="section-title">Мета та завдання</h2>
+        <p class="section-lead">
+          Наш фокус — хімія в реальному житті: від лабораторій до виробництва,
+          від нормативних вимог до освітніх форматів.
+        </p>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section id="activities">
+      <div class="container">
+        <div class="section-label">Практична діяльність</div>
+        <h2 class="section-title">Що ми робимо на практиці</h2>
+        <p class="section-lead">
+          Менше пафосу, більше структурованої роботи. Ми поєднуємо серйозний
+          зміст з форматами, які хочеться відвідати.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts">
+      <div class="container">
+        <div class="section-label">Контакти</div>
+        <h2 class="section-title">Контакти</h2>
+        <p class="section-lead">
+          Найшвидший спосіб зв’язку — електронна пошта.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>© ГО «Хімічна асоціація», 2025.</div>
+        <div>Наука — це не відповіді. Це спосіб бачити.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
