@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ГО «Хімічна асоціація» — хімія, безпека, регулювання</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ГО «Хімічна асоціація» — громадська організація у сфері хімічної науки, безпеки та регулювання."
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg-main: #0f1115;
+      --bg-alt: #181b21;
+      --accent: #7a2b3e;
+      --accent-soft: #b35a6d;
+      --text-main: #f5f5f5;
+      --text-muted: #b0b3bd;
+      --border-subtle: #2a2e36;
+      --pill-bg: #20232b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1b1f27 0, #0b0d11 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(9, 11, 16, 0.9);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--accent-soft);
+      opacity: 0.8;
+    }
+
+    .brand-mark::after {
+      width: 4px;
+      height: 4px;
+      background: var(--accent-soft);
+    }
+
+    .brand-text-top {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brand-text-main {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 18px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent-soft);
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 40px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 40px;
+      line-height: 1.1;
+      margin: 0 0 14px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-main);
+      transition: all 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #4f1a29 100%);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(17, 20, 27, 0.7);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      background: rgba(27, 30, 38, 0.9);
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 460px;
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top, #26222a 0, #15161c 55%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-card-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 18px;
+      margin-bottom: -2px;
+    }
+
+    .hero-card-sub {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr;
+      gap: 12px;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-value {
+      font-size: 13px;
+    }
+
+    .hero-card-footer {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 40px 0 10px;
+    }
+
+    section + section {
+      margin-top: 10px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .section-lead {
+      color: var(--text-muted);
+      max-width: 660px;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+      gap: 26px;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    ul.clean li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+      font-size: 14px;
+    }
+
+    ul.clean li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-soft);
+      font-size: 16px;
+      line-height: 1;
+      top: 0;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .subheading {
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .columns-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .columns-3 h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    .contact-item {
+      margin-bottom: 8px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+    }
+
+    .link-muted {
+      color: var(--accent-soft);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 16px 0 20px;
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .two-col,
+      .columns-3,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 26px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .mobile-only {
+        display: inline-flex;
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-card {
+        margin-top: 4px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div>
+              <div class="brand-text-top">ГО «Хімічна асоціація»</div>
+              <div class="brand-text-main">Хімія, безпека, діалог</div>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#about">Про нас</a></li>
+              <li><a href="#goals">Мета</a></li>
+              <li><a href="#activities">Що ми робимо</a></li>
+              <li><a href="#contacts">Контакти</a></li>
+            </ul>
+            <a href="#contacts" class="mobile-only">Контакти</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-kicker">Громадська організація</div>
+              <h1 class="hero-title">
+                Хімія, безпека й регулювання<br />зрозумілою мовою.
+              </h1>
+              <p class="hero-subtitle">
+                ГО «Хімічна асоціація» — це простір, де наука, бізнес, держава й
+                громадськість говорять про хімію без паніки, але з
+                відповідальністю.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#join" class="btn btn-primary">Долучитися</a>
+                <a href="#activities" class="btn btn-ghost">
+                  Подивитися, що ми робимо
+                </a>
+              </div>
+
+              <p class="hero-note">
+                Ми працюємо там, де формули зустрічаються з реальністю — від
+                освітніх заходів до участі в підготовці регулювання.
+              </p>
+            </div>
+
+            <aside class="hero-card">
+              <div>
+                <div class="hero-card-sub">ГО «Хімічна асоціація»</div>
+                <div class="hero-card-title">Про організацію</div>
+              </div>
+              <div class="hero-card-grid">
+                <div>
+                  <div class="hero-label">Мета</div>
+                  <div class="hero-value">
+                    Метою діяльності Організації є сприяння розвитку хімічної
+                    науки, промисловості та освіти в Україні, підвищення рівня
+                    хімічної обізнаності, налагодження взаємодії між державою,
+                    бізнесом і громадськістю.
+                  </div>
+                </div>
+                <div>
+                  <div class="hero-label">Територія</div>
+                  <div class="hero-value">
+                    Вся Україна, з можливістю міжнародної співпраці.
+                  </div>
+                </div>
+              </div>
+              <div class="hero-card-footer">
+                Організація є неприбутковим товариством. Усі ресурси
+                використовуються виключно для реалізації статутної мети.
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <div class="section-label">Про організацію</div>
+          <h2 class="section-title">Про організацію</h2>
+          <p class="section-lead">
+            Ми поєднуємо науковий підхід, регуляторну практику та доступну
+            мову, щоб хімічна безпека перестала бути страшною темою, а стала
+            передбачуваним процесом.
+          </p>
+        </div>
+      </section>
+
+      <!-- Goals & tasks -->
+      <section id="goals">
+        <div class="container">
+          <div class="section-label">Мета та завдання</div>
+          <h2 class="section-title">Мета та завдання</h2>
+          <p class="section-lead">
+            Наш фокус — хімія в реальному житті: від лабораторій до
+            виробництва, від нормативних вимог до освітніх форматів.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <h3 class="subheading">Мета</h3>
+              <p class="muted">
+                Метою діяльності Організації є сприяння розвитку хімічної
+                науки, промисловості та освіти в Україні, підвищення рівня
+                хімічної обізнаності, налагодження взаємодії між державою,
+                бізнесом і громадськістю.
+              </p>
+            </div>
+            <div>
+              <h3 class="subheading">Основні завдання</h3>
+              <ul class="clean">
+                <li>
+                  Сприяння розвитку хімічної науки, промисловості та освіти в Україні.
+                </li>
+                <li>
+                  Підтримка впровадження політик і стандартів хімічної безпеки,
+                  гармонізованих із правом ЄС.
+                </li>
+                <li>
+                  Проведення освітніх та просвітницьких заходів: лекції, курси,
+                  воркшопи, публічні розмови.
+                </li>
+                <li>
+                  Участь у розробленні та обговоренні нормативно-правових актів
+                  у сфері хімії та безпеки.
+                </li>
+                <li>
+                  Побудова діалогу між державою, бізнесом, академічним
+                  середовищем і громадськістю.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What we do -->
+      <section id="activities">
+        <div class="container">
+          <div class="section-label">Практична діяльність</div>
+          <h2 class="section-title">Що ми робимо на практиці</h2>
+          <p class="section-lead">
+            Менше пафосу, більше структурованої роботи. Ми поєднуємо серйозний
+            зміст з форматами, які хочеться відвідати, а не «відсидіти».
+          </p>
+
+          <div class="columns-3">
+            <div class="card">
+              <h3>1. Освітні формати</h3>
+              <div class="tagline">Лекції, курси та розмови про хімію без паніки</div>
+              <p class="muted">
+                Науково-популярні лекції, практичні воркшопи для фахівців,
+                події для студентів і вчителів. Говоримо про складні речі так,
+                щоб не втратити ані точність, ані людяність.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>2. Експертиза та регулювання</h3>
+              <div class="tagline">Коментарі до політик і нормативно-правових актів</div>
+              <p class="muted">
+                Аналізуємо проєкти документів, готуємо експертні висновки,
+                беремо участь у робочих групах, допомагаємо бізнесу
+                орієнтуватися в регулюванні, пов’язаному з хімічними
+                речовинами.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>3. Спільнота</h3>
+              <div class="tagline">Місце зустрічі науки, бізнесу та суспільства</div>
+              <p class="muted">
+                Створюємо простір для діалогу: тематичні клуби, круглі столи,
+                партнерські ініціативи. Там, де зазвичай говорять різними
+                мовами, ми допомагаємо домовлятися.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- For whom + Join -->
+      <section>
+        <div class="container">
+          <div class="two-col">
+            <!-- For whom -->
+            <div>
+              <div class="section-label">Для кого ми працюємо</div>
+              <h2 class="section-title">Для кого ми працюємо</h2>
+              <p class="section-lead">
+                Якщо ви маєте справу з хімією — як з речовиною, процесом чи
+                регулюванням — ми точно будемо вам корисні.
+              </p>
+
+              <div class="card">
+                <h3>Бізнес</h3>
+                <div class="tagline">Виробники, імпортери, дистриб’ютори</div>
+                <p class="muted">
+                  Пояснюємо вимоги, допомагаємо підготуватися до змін у
+                  регулюванні, підтримуємо діалог з державою й суспільством
+                  щодо ризиків і вигод.
+                </p>
+
+                <h3>Держава та регулятори</h3>
+                <div class="tagline">Органи влади та робочі групи</div>
+                <p class="muted">
+                  Надаємо експертні коментарі, залучаємо професійну спільноту,
+                  пропонуємо формати обговорення, де рішення спираються на
+                  дані, а не лише на емоції.
+                </p>
+
+                <h3>Освітяни й громадськість</h3>
+                <div class="tagline">Університети, школи, ініціативи</div>
+                <p class="muted">
+                  Спільні проєкти, лекції, публічні події. Допомагаємо говорити
+                  про хімічну безпеку так, щоб не лякати, а навчати й
+                  зацікавлювати.
+                </p>
+              </div>
+            </div>
+
+            <!-- Join -->
+            <div id="join">
+              <div class="section-label">Як долучитися</div>
+              <h2 class="section-title">Як долучитися</h2>
+              <p class="section-lead">
+                Ми відкриті до співпраці з фахівцями, організаціями,
+                університетами та ініціативами, для яких хімія — це не лише
+                формули, а відповідальність перед людьми й середовищем.
+              </p>
+
+              <div class="card">
+                <p class="muted">
+                  Ви можете долучитися як член Організації, експерт(ка),
+                  партнер або ініціатор спільного проєкту. Напишіть нам кілька
+                  слів про себе, сферу діяльності та формат співпраці, який вас
+                  цікавить.
+                </p>
+
+                <div class="pill-row">
+                  <span class="pill">участь у заходах</span>
+                  <span class="pill">експертні коментарі</span>
+                  <span class="pill">спільні проєкти</span>
+                </div>
+
+                <a href="#contacts" class="btn btn-primary" style="margin-top: 10px;">
+                  Написати нам
+                </a>
+
+                <h3 class="subheading" style="margin-top: 18px;">
+                  Для фахівців та науковців
+                </h3>
+                <p class="muted">
+                  Можливість долучатися до робочих груп, публічних подій,
+                  аналітичних матеріалів і освітніх форматів.
+                </p>
+
+                <h3 class="subheading">Для організацій та бізнесу</h3>
+                <p class="muted">
+                  Партнерські заходи, освітні програми для команд, участь у
+                  діалозі з державою та суспільством.
+                </p>
+
+                <h3 class="subheading">
+                  Для університетів та освітніх програм
+                </h3>
+                <p class="muted">
+                  Спільні курси, гостьові лекції, допомога у формуванні
+                  контенту про хімію й безпеку, який хочеться слухати.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacts -->
+      <section id="contacts">
+        <div class="container">
+          <div class="section-label">Контакти</div>
+          <h2 class="section-title">Контакти</h2>
+          <p class="section-lead">
+            Найшвидший спосіб зв’язку — електронна пошта. Також можете додати
+            нас у свої робочі контакти та звертатися з пропозиціями співпраці
+            чи запитами щодо участі в заходах.
+          </p>
+
+          <div class="contact-grid">
+            <div class="card">
+              <h3 class="subheading">Зв’язок</h3>
+
+              <div class="contact-item">
+                <div class="contact-label">Е-пошта</div>
+                <div class="contact-value">
+                  <a
+                    class="link-muted"
+                    href="mailto:ngo-chem@ukr.net"
+                    >ngo-chem@ukr.net</a
+                  >
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">Телефон</div>
+                <div class="contact-value">
+                  <a class="link-muted" href="tel:+380977759717"
+                    >+38 (097) 775 97 17</a
+                  >
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">Вебсайт</div>
+                <div class="contact-value">
+                  <a
+                    class="link-muted"
+                    href="https://ngo-chem.pp.ua"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >ngo-chem.pp.ua</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="subheading">Офіційні дані</h3>
+
+              <div class="contact-item">
+                <div class="contact-label">Назва</div>
+                <div class="contact-value">
+                  Громадська організація «Хімічна асоціація»
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">Скорочено</div>
+                <div class="contact-value">ГО «Хімічна асоціація»</div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">Адреса</div>
+                <div class="contact-value">
+                  02090, м. Київ, вул. Празька, буд. 3, кв. 270
+                </div>
+              </div>
+
+              <p class="muted" style="margin-top: 10px; font-size: 13px;">
+                Формат: неприбуткова громадська організація. Уся діяльність
+                здійснюється відповідно до Статуту та законодавства України.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© ГО «Хімічна асоціація», 2025.</div>
+        <div>Наука — це не відповіді. Це спосіб бачити.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
